@@ -4,17 +4,15 @@ namespace Facade
 {
     public class InventoryService
     {
-        private List<Product> products;
-
-
+        private List<Product> _products;
         void addProduct(Product product)
         {
-            products.Add(product);
+            _products.Add(product);
         }
 
         void removeProduct(Product product)
         {
-            products.Remove(product);
+            _products.Remove(product);
         }
     }
 }
