@@ -10,7 +10,7 @@ namespace Facade
             _products.Add(product);
         }
 
-        void removeProduct(Product product)
+        public void removeProduct(Product product)
         {
             _products.Remove(product);
         }
