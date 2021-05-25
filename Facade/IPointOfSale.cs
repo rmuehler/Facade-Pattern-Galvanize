@@ -2,12 +2,12 @@
 {
     public interface IPointOfSale
     {
-        void SellProduct(string productName, string customerName, string shippingAddress);
-        
-        void AddProduct(string name, int pricing, int quantity);
+        Product AddProduct(string name, int pricing, int quantity);
 
-        void processPayment(string customerName);
+        public void SellProduct(Product product);
 
-        void ShipProduct(string name);
+        public Shipment processPayment(Payment payment, Product product);
+
+        public void ShipProduct(Shipment shipment);
     }
 }

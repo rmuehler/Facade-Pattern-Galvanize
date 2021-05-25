@@ -7,26 +7,41 @@
         private PaymentService _paymentService;
 
 
-        public void SellProduct(string productName, string customerName, string shippingAddress)
+        public void SellProduct(Product product)
         {
-            _inventoryService.removeProduct(new Product());
-            
-            _paymentService.addShipment(new Shipment());
+            _inventoryService.removeProduct(product);
         }
 
-        public void AddProduct(string name, int pricing, int quantity)
+        public Product AddProduct(string name, int pricing, int quantity)
         {
-            throw new System.NotImplementedException();
+            var product = new Product()
+            {
+                Name = name,
+                Pricing = pricing,
+                Quantity = quantity
+            };
+            _inventoryService.addProduct(product);
+            return product;
         }
 
-        public void processPayment(string customerName)
+        //remove payment, get it ready for shipping
+        public Shipment processPayment(Payment payment, Product product)
         {
-            throw new System.NotImplementedException();
+            _paymentService.removePayment(payment);
+
+            var shipment = new Shipment()
+            {
+                Product = product,
+                Address = payment.customerAddress,
+                Quantity = product.Quantity
+            };
+            _shippingService.addShipment(shipment);
+            return shipment;
         }
 
-        public void ShipProduct(string name)
+        public void ShipProduct(Shipment shipment)
         {
-            throw new System.NotImplementedException();
+            _shippingService.removeShipment(shipment);
         }
     }
 }

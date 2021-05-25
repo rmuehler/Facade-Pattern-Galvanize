@@ -4,17 +4,17 @@ namespace Facade
 {
     public class PaymentService
     {
-        private List<Shipment> _pendingPayments;
+        private List<Payment> _pendingPayments;
 
 
-        public void addShipment(Shipment shipment)
+        public void addPayment(Payment payment)
         {
-            _pendingPayments.Add(shipment);
+            _pendingPayments.Add(payment);
         }
 
-        public void removeShipment(Shipment shipment)
+        public void removePayment(Payment payment)
         {
-            _pendingPayments.Remove(shipment);
+            _pendingPayments.Remove(payment);
         }
     }
 }
