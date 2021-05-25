@@ -5,7 +5,8 @@ namespace Facade
     public class InventoryService
     {
         private List<Product> _products;
-        void addProduct(Product product)
+
+        public void addProduct(Product product)
         {
             _products.Add(product);
         }

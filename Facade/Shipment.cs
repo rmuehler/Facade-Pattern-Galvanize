@@ -2,7 +2,8 @@
 {
     public class Shipment
     {
-        private Address _address;
-        private Product _product;
+        public string Address { get; set; }
+        public int Quantity { get; set; }
+        public Product Product { get; set; }
     }
 }
